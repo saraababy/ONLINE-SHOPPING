@@ -1,0 +1,59 @@
+def AddProduct(request):
+   cat=CategoryDB.objects.all()
+   return render(request, 'AddProduct.html', {'cat':cat})
+
+def submitProduct(request):
+   if request.method=="POST":
+      na=request.POST.get('catName')
+      pn=request.POST.get('proname')
+      pr=request.POST.get('proprice')
+      pd=request.POST.get('prodesc')
+      im=request.FILES['imgg']
+      ob=ProductDB(CatName=na, ProName=pn, Image=im, Description=pd,Proprice=pr)
+      ob.save()
+      messages.success(request, "Product saved successfully..!")
+
+      return redirect(AddProduct)
+
+def DisplayProduct(request):
+   pro=ProductDB.objects.all()
+   return  render(request, 'DisplayProduct.html', {'pro':pro})
+
+def EditProduct(request, dataid):
+   cat=CategoryDB.objects.all()
+   pro=ProductDB.objects.get(id=dataid)
+   return  render(request, 'EditProduct.html', {'pro':pro, 'cat':cat} )
+
+
+def updateProduct(request, dataid):
+   if request.method=="POST":
+      na = request.POST.get('catName')
+      pn = request.POST.get('proname')
+      pr = request.POST.get('proprice')
+      pd = request.POST.get('prodesc')
+      try:
+         im = request.FILES['imgg']
+         fs = FileSystemStorage()
+         file = fs.save(im.name, im)
+      except MultiValueDictKeyError:
+         file = ProductDB.objects.get(id=dataid).Image
+      ProductDB.objects.filter(id=dataid).update(CatName=na, ProName=pn, Description=pd,Proprice=pr,Image=file)
+      messages.success(request, "Product updated successfully..!")
+
+      return redirect(DisplayProduct)
+
+def DeleteProduct(request, dataid):
+   pro=ProductDB.objects.filter(id=dataid)
+   pro.delete()
+   messages.success(request, "Product successfully removed from the system..!")
+
+   return redirect(DisplayProduct)
+
+
+
+path('AddProduct/', views.AddProduct, name="AddProduct"),
+                path('submitProduct/', views.submitProduct, name="submitProduct"),
+                path('DisplayProduct/', views.DisplayProduct, name="DisplayProduct"),
+                path('EditProduct/<int:dataid>/', views.EditProduct, name="EditProduct"),
+                path('updateProduct/<int:dataid>/', views.updateProduct, name="updateProduct"),
+                path('DeleteProduct/<int:dataid>/', views.DeleteProduct, name="DeleteProduct"),

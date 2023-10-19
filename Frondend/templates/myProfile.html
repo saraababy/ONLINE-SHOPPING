@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+	<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+  rel="stylesheet"
+/>
+	<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+></script>
+</head>
+<body class="animsition">
+
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+				</div>
+			</div>
+
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
+
+					<!-- Logo desktop -->
+					<a href="#" class="logo">
+						<img src="{% static 'Bizlogo - rectangle@72x-100.jpg'%}" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+
+							<li  class="active-menu">
+								<a href="{% url 'Home_admin' %}">Home</a>
+							</li>
+							<li>
+								<a href="{% url 'shop_now' %}">Shop</a>
+
+							</li>
+							<li>
+								<a href="{% url 'about_us' %}">About</a>
+							</li>
+
+							<li>
+								<a href="{% url 'contact_us' %}">Contact</a>
+							</li>
+							<li>
+								{% if request.session.UserName %}
+								<a href="index.html">{{request.session.UserName }}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'profile' %}"> My Profile</a></li>
+									<li><a href="{% url 'orders' %}"> Your Orders</a></li>
+									<li><a href="{% url 'user_logout' %}"> Logout</a></li>
+								</ul>
+								{% else %}
+								<a href="{% url 'login_Reg' %}">Login</a>
+								{% endif %}
+							</li>
+						</ul>
+					</div>
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  js-show-cart">
+							<a href="{% url 'DisplayCart' %}"><i class="zmdi zmdi-shopping-cart"></i></a>
+						</div>
+
+<!--						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">-->
+<!--							<i class="zmdi zmdi-favorite-outline"></i>-->
+<!--						</a>-->
+<!--										{% if request.session.UserName %}-->
+<!--										<a>{{request.session.UserName }}</a></a><span style="color:white"> |</span>-->
+<!--										<a href="{% url 'user_logout' %}">Logout</a>-->
+<!--										{% else %}-->
+<!--										<a href="{% url 'login_Reg' %}">Login</a><span style="color:white"> |</span><a href="{% url 'login_Reg' %}">Register</a>-->
+<!--										{% endif %}-->
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+<div class="sec-banner bg0 p-t-80 p-b-50">
+		<div class="container">
+
+		</div>
+	</div>
+
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('{% static 'Bizlogo - rectangle@72x-100.jpg' %}');">
+		<h2 class="ltext-105 cl0 txt-center">
+			My Profile
+		</h2>
+	</section>
+
+
+	<!-- Content page -->
+	<section class="bg0 p-t-104 p-b-116">
+		<div class="container">
+			<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">My Profile</a></li>
+
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src= "{{data.Image.url}}"alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{request.session.UserName}}</h5>
+
+			  <form action="{% url 'update_profileimage' dataid=data.id %}" enctype="multipart/form-data" method="post">
+				  {% csrf_token %}
+				  <div class="d-flex justify-content-center mb-2">
+				<input type="file" name="img" value="{{data.Image.url}}">
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+			  </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <form method="post" action="{% url 'update_profile' dataid=data.id %}">
+			  {% csrf_token %}
+			  <div class="card-body">
+				<div class="row">
+				  <div class="col-sm-3">
+					<p class="mb-0">Full Name</p>
+				  </div>
+				  <div class="col-sm-9">
+					<input type="text" name="full_name" value="{{data.FullName}}">
+				  </div>
+				</div>
+				<hr>
+				<div class="row">
+				  <div class="col-sm-3">
+					<p class="mb-0">Email</p>
+				  </div>
+				  <div class="col-sm-9">
+					<input type="email" name="email" value="{{data.Email}}">
+				  </div>
+				</div>
+				<hr>
+				<div class="row">
+				  <div class="col-sm-3">
+					<p class="mb-0">Phone</p>
+				  </div>
+				  <div class="col-sm-9">
+					<input type="text" name="mobile" value="{{data.ContactNumber}}" >
+				  </div>
+				</div>
+				  <hr>
+				<div class="row">
+				  <div class="col-sm-3">
+					<p class="mb-0">Address</p>
+				  </div>
+				  <div class="col-sm-9">
+					<input type="text" name="address" value="{{data.Address}}">
+				  </div>
+				</div>
+				  <hr>
+				  <button type="submit"  class="btn btn-primary">Update</button>
+          	</div>
+		  </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+		</div>
+	</section>
+
+
+	<!-- Map -->
+
+
+
+
+
+
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						{% for i in cat %}
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								{{i.CatName}}
+							</a>
+						</li>
+						{% endfor %}
+
+					</ul>
+				</div>
+
+<!--				<div class="col-sm-6 col-lg-3 p-b-50">-->
+<!--					<h4 class="stext-301 cl0 p-b-30">-->
+<!--						Help-->
+<!--					</h4>-->
+
+<!--					<ul>-->
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								Track Order-->
+<!--							</a>-->
+<!--						</li>-->
+
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								Returns-->
+<!--							</a>-->
+<!--						</li>-->
+
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								Shipping-->
+<!--							</a>-->
+<!--						</li>-->
+
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								FAQs-->
+<!--							</a>-->
+<!--						</li>-->
+<!--					</ul>-->
+<!--				</div>-->
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at  ALACKAL FASHIONS ,MCP BUILDINGS, KOLENCHERY , ERNAKULAM ,  or call us on (+91) 8921 562 413
+
+					</p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+<!--				<div class="col-sm-6 col-lg-3 p-b-50">-->
+<!--					<h4 class="stext-301 cl0 p-b-30">-->
+<!--						Newsletter-->
+<!--					</h4>-->
+
+<!--					<form>-->
+<!--						<div class="wrap-input1 w-full p-b-4">-->
+<!--							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">-->
+<!--							<div class="focus-input1 trans-04"></div>-->
+<!--						</div>-->
+
+<!--						<div class="p-t-18">-->
+<!--							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">-->
+<!--								Subscribe-->
+<!--							</button>-->
+<!--						</div>-->
+<!--					</form>-->
+<!--				</div>-->
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-01.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-02.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-03.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-04.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-05.png' %}" alt="ICON-PAY'%}">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://luminartechnolab.com" target="_blank">Luminar Technolab</a>
+
+				</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 -->
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js'%}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/slick/slick.min.js'%}"></script>
+	<script src="{% static 'js/slick-custom.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/parallax100/parallax100.js'%}"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/isotope/isotope.pkgd.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/sweetalert/sweetalert.min.js'%}"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js'%} "></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% if messages %}
+      {% for i in messages %}
+           {% if i.tags == 'warning' %}
+               <script>
+                    swal('{{i}}','','warning');
+               </script>
+           {% elif i.tags == 'error' %}
+               <script>
+                    swal('{{i}}','','error');
+               </script>
+           {% else %}
+               <script>
+                    swal('{{i}}','','success');
+               </script>
+           {% endif %}
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/MagnificPopup/magnific-popup.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+	<style>
+		@media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+	</style>
+	<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+  rel="stylesheet"
+/>
+	<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+></script>
+</head>
+<body class="animsition">
+
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+
+				</div>
+			</div>
+
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
+
+					<!-- Logo desktop -->
+					<a href="#" class="logo">
+						<img src="{% static 'Bizlogo - rectangle@72x-100.jpg'%}" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+
+							<li  >
+								<a href="{% url 'Home_admin' %}">Home</a>
+							</li>
+							<li class="active-menu">
+								<a href="{% url 'shop_now' %}">Shop</a>
+<!--								<ul class="sub-menu">-->
+<!--									{% for i in cat %}-->
+<!--									<li><a href="#">{{i.CatName}}</a></li>-->
+<!--									{% endfor %}-->
+
+<!--								</ul>-->
+							</li>
+							<li>
+								<a href="{% url 'about_us' %}">About</a>
+							</li>
+
+							<li>
+								<a href="{% url 'contact_us' %}">Contact</a>
+							</li>
+							<li>
+								{% if request.session.UserName %}
+								<a href="#">{{request.session.UserName }}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'profile' %}"> My Profile</a></li>
+									<li><a href="{% url 'orders' %}"> Your Orders</a></li>
+									<li><a href="{% url 'user_logout' %}"> Logout</a></li>
+								</ul>
+								{% else %}
+								<a href="{% url 'login_Reg' %}">Login</a>
+								{% endif %}
+							</li>
+						</ul>
+					</div>
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+<!--						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">-->
+<!--							<i class="zmdi zmdi-search"></i>-->
+<!--						</div>-->
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  js-show-cart">
+							<a href="{% url 'DisplayCart' %}"><i class="zmdi zmdi-shopping-cart"></i></a>
+						</div>
+
+
+<!--						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">-->
+<!--							<i class="zmdi zmdi-favorite-outline"></i>-->
+<!--						</a>-->
+<!--										{% if request.session.UserName %}-->
+<!--										<a>{{request.session.UserName }}</a></a><span style="color:white"> |</span>-->
+<!--										<a href="#">Logout</a>-->
+<!--										{% else %}-->
+<!--										<a href="{% url 'login_Reg' %}">Login</a><span style="color:white"> |</span><a href="{% url 'login_Reg' %}">Register</a>-->
+<!--										{% endif %}-->
+					</div>
+				</nav>
+			</div>
+		</div>
+
+	</header>
+	<!-- Banner -->
+	<div class="sec-banner bg0 p-t-80 p-b-50">
+		<div class="container">
+
+		</div>
+	</div>
+
+
+	<!-- Product -->
+	<section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+
+            <div class="row">
+
+              <div class="col-lg-7">
+                <h5 class="mb-3"><a href="{% url 'shop_now' %}" class="text-body"><i
+                      class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                <hr>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">Shopping cart</p>
+                    <p class="mb-0">You have {{cart_count}} items in your cart</p>
+                  </div>
+
+                </div>
+                {% for i in data %}
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            <img src="{{i.Image}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>{{i.ProName}}</h5>
+                          <p class="small mb-0">{{i.Description}}</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">{{i.Quantity}}</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">₹ {{i.TotalPrice}}</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><a href="{% url 'DeleteItem'  dataid=i.id %}"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  {% endfor %}
+
+
+
+              </div>
+
+              <div class="col-lg-5">
+
+                <div class="card bg-primary text-white rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">Card details</h5>
+
+                    </div>
+
+                    <p class="small mb-2">Card type</p>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+
+                    <form class="mt-4">
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                          placeholder="Cardholder's Name" />
+                        <label class="form-label" for="typeName">Cardholder's Name</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Number</label>
+                      </div>
+
+                      <div class="row mb-4">
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="text" id="typeExp" class="form-control form-control-lg"
+                              placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
+                            <label class="form-label" for="typeExp">Expiration</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="password" id="typeText" class="form-control form-control-lg"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <label class="form-label" for="typeText">Cvv</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">₹ {{total_price}}</p>
+                    </div>
+
+
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2">Total(Incl. taxes)</p>
+                      <p class="mb-2">₹ {{total_price}}</p>
+                    </div>
+					<form method="post" action="{% url 'checkout' %}">
+						{% csrf_token  %}
+						<button type="submit" class="btn btn-info btn-block btn-lg">
+                      <div class="d-flex justify-content-between">
+                        <span>₹ {{total_price}}</span>
+                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                      </div>
+                    </button>
+					</form>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						{% for i in cat %}
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								{{i.CatName}}
+							</a>
+						</li>
+						{% endfor %}
+
+					</ul>
+				</div>
+
+<!--				<div class="col-sm-6 col-lg-3 p-b-50">-->
+<!--					<h4 class="stext-301 cl0 p-b-30">-->
+<!--						Help-->
+<!--					</h4>-->
+
+<!--					<ul>-->
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								Track Order-->
+<!--							</a>-->
+<!--						</li>-->
+
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								Returns-->
+<!--							</a>-->
+<!--						</li>-->
+
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								Shipping-->
+<!--							</a>-->
+<!--						</li>-->
+
+<!--						<li class="p-b-10">-->
+<!--							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">-->
+<!--								FAQs-->
+<!--							</a>-->
+<!--						</li>-->
+<!--					</ul>-->
+<!--				</div>-->
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+<!--				<div class="col-sm-6 col-lg-3 p-b-50">-->
+<!--					<h4 class="stext-301 cl0 p-b-30">-->
+<!--						Newsletter-->
+<!--					</h4>-->
+
+<!--					<form>-->
+<!--						<div class="wrap-input1 w-full p-b-4">-->
+<!--							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">-->
+<!--							<div class="focus-input1 trans-04"></div>-->
+<!--						</div>-->
+
+<!--						<div class="p-t-18">-->
+<!--							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">-->
+<!--								Subscribe-->
+<!--							</button>-->
+<!--						</div>-->
+<!--					</form>-->
+<!--				</div>-->
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-01.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-02.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-03.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-04.png' %}" alt="ICON-PAY'%}">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'images/icons/icon-pay-05.png' %}" alt="ICON-PAY'%}">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://luminartechnolab.com" target="_blank">Luminar Technolab</a>
+
+				</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 -->
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js'%}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/slick/slick.min.js'%}"></script>
+	<script src="{% static 'js/slick-custom.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/parallax100/parallax100.js'%}"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/isotope/isotope.pkgd.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/sweetalert/sweetalert.min.js'%}"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js'%} "></script>
+<script>
+  document.querySelector('.img-btn').addEventListener('click', function()
+	{
+		document.querySelector('.cont').classList.toggle('s-signup')
+	}
+);
+
+</script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $("document").ready(function(){
+            $("#qty").change(function(){
+                x=document.getElementById("qty").value;
+                console.log(x);
+                y={{data.Proprice}}
+                z=x*y;
+                document.getElementById("total").value=z;
+
+            })
+        })
+
+    </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% if messages %}
+      {% for i in messages %}
+           {% if i.tags == 'warning' %}
+               <script>
+                    swal('{{i}}','','warning');
+               </script>
+           {% elif i.tags == 'error' %}
+               <script>
+                    swal('{{i}}','','error');
+               </script>
+           {% else %}
+               <script>
+                    swal('{{i}}','','success');
+               </script>
+           {% endif %}
+        {% endfor %}
+    {% endif %}</body>
+</html>
